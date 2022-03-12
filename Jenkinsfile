@@ -12,8 +12,10 @@
 // }
 
 
-// Declarative syntax: modern
-node {
+// Declarative syntax/pipeline: modern
+pipeline {
+	// (the agent refers to where ur build will run)
+	agent any
 	echo "Build"
 	echo "Test"
 	echo "Integration Test"
