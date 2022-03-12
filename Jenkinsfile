@@ -17,7 +17,7 @@ pipeline {
 	// (the agent refers to where ur build will run)
 	agent any
 	stages {
-		stage("Build") {
+		stage('Build') {
 			steps {
 				echo "Build"
 				echo "Test"
