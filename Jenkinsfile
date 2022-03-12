@@ -44,5 +44,11 @@ pipeline {
 		failure {
 			echo 'I stall whenever your pipeline fails!'
 		}
+		changed {
+			echo 'The build was successful'
+		}
+		changed {
+			echo 'The build failed'
+		}
 	}
 }
