@@ -47,8 +47,5 @@ pipeline {
 		changed {
 			echo 'The build was successful'
 		}
-		changed {
-			echo 'The build failed'
-		}
 	}
 }
