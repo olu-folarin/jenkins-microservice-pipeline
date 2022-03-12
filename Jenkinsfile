@@ -20,8 +20,6 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "Build"
-				
-				echo "Integration Test"
 			}
 		}
 		stage('Test') {
@@ -29,6 +27,10 @@ pipeline {
 				echo "Test"
 			}
 		}
-		stage('Integration Test')
+		stage('Integration Test') {
+			steps {
+				echo "Integration Test"
+			}
+		}
 	}
 }
