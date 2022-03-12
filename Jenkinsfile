@@ -29,5 +29,6 @@ pipeline {
 				echo "Test"
 			}
 		}
+		stage('Integration Test')
 	}
 }
