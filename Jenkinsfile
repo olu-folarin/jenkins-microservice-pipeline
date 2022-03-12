@@ -16,7 +16,13 @@
 pipeline {
 	// (the agent refers to where ur build will run)
 	agent any
-	echo "Build"
-	echo "Test"
-	echo "Integration Test"
+	stages {
+		stage("Build") {
+			steps {
+				echo "Build"
+				echo "Test"
+				echo "Integration Test"
+			}
+		}
+	}
 }
