@@ -45,7 +45,7 @@ pipeline {
 			echo 'I stall whenever your pipeline fails!'
 		}
 		changed {
-			echo 'The build was successful. Do not panic!'
+			echo 'The build was successful.'
 		}
 	}
 }
