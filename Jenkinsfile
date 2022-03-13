@@ -20,6 +20,8 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "Build"
+				// using some global variables
+				ECHO 'Branch_Name - $env.TAG_NAME'
 			}
 		}
 		stage('Test') {
