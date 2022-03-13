@@ -15,10 +15,13 @@
 // Declarative syntax/pipeline: modern
 pipeline {
 	// (the agent refers to where ur build will run)
-	agent any
+	// **agent any
+	// using docker images as jekins pipeline agents
+	agent { docker {image 'maven: 3.6.3'} }
 	stages {
 		stage('Build') {
 			steps {
+				echo 'mvn --version'
 				echo "Build"
 			}
 		}
