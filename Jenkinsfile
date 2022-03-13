@@ -21,7 +21,9 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				echo 'mvn --version'
+				// echo 'mvn --version'
+				// echo 'mvn --version' this will only print what's in the quotes
+				sh 'mvn --version' //this will print the actual version
 				echo "Build"
 			}
 		}
