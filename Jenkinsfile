@@ -21,10 +21,10 @@ pipeline {
 			steps {
 				echo "Build"
 				// using some global variables
-				echo 'Branch_Name - $env.TAG_NAME'
-				echo 'Tag_Date - $env.TAG_DATE'
-				echo 'Build_Number - $env.BUILD_NUMBER'
-				echo 'Build_Name - $env.BUILD_NAME'
+				sh 'Branch_Name - $env.TAG_NAME'
+				sh 'Tag_Date - $env.TAG_DATE'
+				sh 'Build_Number - $env.BUILD_NUMBER'
+				sh 'Build_Name - $env.BUILD_NAME'
 			}
 		}
 		stage('Test') {
