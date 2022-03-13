@@ -26,6 +26,7 @@ pipeline {
 				echo "TAG_DATE - $env.TAG_DATE"
 				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
 				echo "BUILD_NAME - $env.BUILD_NAME"
+				echo "JOB_NAME - $env.JOB_NAME"
 			}
 		}
 		stage('Test') {
