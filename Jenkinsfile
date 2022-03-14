@@ -27,6 +27,7 @@ pipeline {
 				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
 				echo "BUILD_NAME - $env.BUILD_NAME"
 				echo "JOB_NAME - $env.JOB_NAME"
+				echo "JOB_ID - $env.JOB_ID"
 			}
 		}
 		stage('Test') {
