@@ -42,15 +42,20 @@ pipeline {
 				echo "JOB_ID - $env.JOB_ID"
 			}
 		}
-		stage('Build') {
+		stage('Compile') {
 			steps {
 				// compile the code
 				sh 'mvn clean compile'
 			}
 		}
+		stage('Test') {
+			steps {
+				sh 'mvn test'
+			}
+		}
 		stage('Integration Test') {
 			steps {
-				echo "Integration Test"
+				sh "mvn failsafe: integration-test"
 			}
 		}
 	} 
