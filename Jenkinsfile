@@ -29,6 +29,8 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
+				// after finding the paths, you can now get both docker and maven versions
+				sh 'mvn --version'
 				echo "Build"
 				// using some global variables
 				echo "$PATH"
