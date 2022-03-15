@@ -38,6 +38,7 @@ pipeline {
 				echo "TAG_DATE - $env.TAG_DATE"
 				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
 				echo "BUILD_NAME - $env.BUILD_NAME"
+				echo "BUILD_TAG - $env.BUILD_TAG"
 				echo "JOB_NAME - $env.JOB_NAME"
 				echo "JOB_ID - $env.JOB_ID"
 			}
@@ -55,7 +56,18 @@ pipeline {
 		}
 		stage('Integration Test') {
 			steps {
-				sh "mvn failsafe: integration-test"
+				sh "mvn failsafe:integration-test failsafe:verify"
+			}
+		}
+		stage('Build Docker Image') {
+			steps {
+				// enter the image name
+				docker build -t in28min/currency-exchange-devops
+			}
+		}
+		stage('Push Docker Image') {
+			steps {
+
 			}
 		}
 	} 
