@@ -22,9 +22,9 @@ pipeline {
 		// to locate their home folders
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'myMaven'
-
-		// 
-		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+		// get their paths
+		PATH = "$dockerHome/bin:$PATH"
+		PATH = "$mavenHome/bin:$PATH"
 	}
 	stages {
 		stage('Build') {
