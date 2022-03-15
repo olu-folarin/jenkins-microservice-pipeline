@@ -59,6 +59,12 @@ pipeline {
 				sh "mvn failsafe:integration-test failsafe:verify"
 			}
 		}
+		stage('Package') {
+			steps {
+				// skip tests since you already ran them previously. this will also create a jar file
+				sh "mvn package DskipTests"
+			}
+		}
 		stage('Build Docker Image') {
 			steps {
 				// enter the image name
@@ -66,7 +72,7 @@ pipeline {
 
 				// an easier way to do this is with a script
 				script {
-					docker.build("in28min/currency-exchange-devops:${$env.BUILD_TAG}")
+					dockerImage = docker.build("in28min/currency-exchange-devops:${$env.BUILD_TAG}")
 				}
 			}
 		}
@@ -75,9 +81,12 @@ pipeline {
 				// push to dockerhub
 				steps {
 					script {
-						dockerImage.push();
-						// push the latest version/integration
-						dockerImage.push('latest')
+						// enter the destinaton
+						docker.withRegistry('', 'dockerhub') {
+							dockerImage.push();
+							// push the latest version/integration
+							dockerImage.push('latest')
+						}
 					}
 				}
 			}
