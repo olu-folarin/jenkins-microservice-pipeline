@@ -26,7 +26,7 @@ pipeline {
 	}
 	
 	stages {
-		stage('Build') {
+		stage('Checkout') {
 			steps {
 				// after finding the paths, you can now get both docker and maven versions
 				sh 'mvn --version'
@@ -42,9 +42,10 @@ pipeline {
 				echo "JOB_ID - $env.JOB_ID"
 			}
 		}
-		stage('Test') {
+		stage('Build') {
 			steps {
-				echo "Test"
+				// compile the code
+				sh 'mvn clean compile'
 			}
 		}
 		stage('Integration Test') {
