@@ -62,12 +62,24 @@ pipeline {
 		stage('Build Docker Image') {
 			steps {
 				// enter the image name
-				docker build -t in28min/currency-exchange-devops
+				// docker build -t in28min/currency-exchange-devops:$env.BUILD_TAG
+
+				// an easier way to do this is with a script
+				script {
+					docker.build("in28min/currency-exchange-devops:${$env.BUILD_TAG}")
+				}
 			}
 		}
 		stage('Push Docker Image') {
 			steps {
-
+				// push to dockerhub
+				steps {
+					script {
+						dockerImage.push();
+						// push the latest version/integration
+						dockerImage.push('latest')
+					}
+				}
 			}
 		}
 	} 
