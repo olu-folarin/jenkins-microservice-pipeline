@@ -16,6 +16,15 @@
 pipeline {
 	// (the agent refers to where ur build will run)
 	agent any
+
+	// configuring docker and maven with environment
+	environment {
+		// to locate their home folders
+		dockerHome = tool 'myDocker'
+		mavenHome = tool 'myMaven'
+
+		// 
+	}
 	stages {
 		stage('Build') {
 			steps {
