@@ -22,15 +22,15 @@ pipeline {
 		// to locate their home folders and get their paths
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'myMaven'
-		PATH = "$dockerHome/bin:$PATH:$mavenHome/bin:$PATH"
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
 	}
 	
 	stages {
 		stage('Build') {
 			steps {
 				// after finding the paths, you can now get both docker and maven versions
-				sh 'docker version'
-				sh 'mvn --version'
+				sh "mvn --version"
+				sh "docker version"
 				echo "Build"
 				// using some global variables
 				echo "$PATH"
