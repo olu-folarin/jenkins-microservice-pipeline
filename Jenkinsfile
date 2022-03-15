@@ -31,6 +31,7 @@ pipeline {
 			steps {
 				// after finding the paths, you can now get both docker and maven versions
 				sh 'mvn --version'
+				sh 'docker --version'
 				echo "Build"
 				// using some global variables
 				echo "$PATH"
